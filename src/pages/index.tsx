@@ -1,3 +1,6 @@
+import styles from '../styles/home.module.scss'
+
 export default function Home() {
-  return <h1>Anderson iniciando aqui</h1>;
+  return <h1 className={styles.title}>Anderson iniciando <span> aqui</span></h1>;
 }
+
