@@ -22,7 +22,7 @@
       padding: 0 0.5rem;
       height: 5rem;
       line-height: 5rem;
-      color:var(--gray-100);
+      color:var(--gray-300);
       transition: color 0.2s;
 
       & + a {
@@ -49,5 +49,9 @@
         background: var(--yellow-500);
       }
     }
+  }
+
+  button{
+    margin-left: auto;
   }
 }
