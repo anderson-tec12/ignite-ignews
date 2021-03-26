@@ -6,7 +6,8 @@ export default class MyDocument extends Document{
     return(
       <Html>
           <Head>
-            <link rel="manifest" href="/public/manifest.json" />
+            <link rel="shortcut icon" href="/favicon.png" type="image/png"/>
+            <link rel="manifest" href="/manifest.json" />
             <link rel="preconnect" href="https://fonts.gstatic.com" />           
             <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet"></link>
           </Head>
