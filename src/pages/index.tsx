@@ -3,6 +3,7 @@ import styles from './index.module.scss'
 import  Head from 'next/head'
 import { SubscribeButton } from '../components/SubscribeButton'
 import { stripe } from '../services/stripe'
+import { ChangeEvent } from 'react'
 
 interface HomeProps{
   product:{
@@ -32,6 +33,7 @@ export default function Home(props:HomeProps) {
             <span>for {product !== undefined && product.amount} month</span>
           </p>
           <SubscribeButton priceId={product.priceId}/>
+          
         </section>
 
         <img src="/images/avatar.svg" alt="Girl coding" />
