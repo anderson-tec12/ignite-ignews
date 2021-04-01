@@ -21,8 +21,7 @@ export default NextAuth({
         console.log(user)
         const {email} = user 
 
-        await fauna.query(
-         
+        await fauna.query(         
             q.If(
               q.Not(
                 q.Exists(
@@ -34,20 +33,18 @@ export default NextAuth({
               ),
               q.Create(
                 q.Collection('users'),
-                {
-                  data:{email}
-                }
+                {data:{email}}
               ),
-              q.Get(
-                q.Exists(
+              q.Get(                
                   q.Match(
                     q.Index('user_by_email'),
                     q.Casefold(user.email)
-                  )
-                )
+                  )                
               )
             )            
         )
+
+        
         
 
         return true
