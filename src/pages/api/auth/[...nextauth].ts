@@ -18,7 +18,7 @@ export default NextAuth({
     async  signIn(user, account, profile){
       
       try{
-        console.log(user)
+        // console.log(user)
         const {email} = user 
 
         await fauna.query(         

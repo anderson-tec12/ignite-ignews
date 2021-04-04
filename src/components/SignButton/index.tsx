@@ -7,7 +7,7 @@ export function SignButton(){
   const [session] = useSession()
   const isUSerLoggedIn = session
 
-  console.log(session)
+  // console.log(session)
   return (
 
     !isUSerLoggedIn ? (

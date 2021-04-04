@@ -13,7 +13,7 @@ interface HomeProps{
 }
 
 export default function Home(props:HomeProps) {
-  // console.log(props)
+  
   const {product} = props
   return(
     <>
