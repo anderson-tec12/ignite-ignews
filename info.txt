@@ -1,0 +1,13 @@
+JAMSTACK
+javascript
+api
+marckup
+
+
+cms(Content Management System)
+
+headless CMS (Painel de administração + API)
+
+strapi
+ghost
+keystone
