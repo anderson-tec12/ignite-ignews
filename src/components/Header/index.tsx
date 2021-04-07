@@ -1,10 +1,11 @@
 import { SignButton } from '../SignButton'
-import Link from 'next/link'
+
 import styles from './styles.module.scss'
-import { useRouter } from 'next/router'
+
+import { ActiveLink } from '../ActiveLink'
 
 export function Header(){
-  const {asPath} = useRouter()
+  
   
   return(
     <header className={styles.headerContainer}>
@@ -12,13 +13,13 @@ export function Header(){
       <img src="/images/logo.svg" alt="ig.news" />
 
       <nav>
-        <Link href="/">
-          <a  className={styles.active}>Home</a>
-        </Link>
+        <ActiveLink href="/" activeClassName={styles.active}>
+          <a>Home</a>
+        </ActiveLink>
 
-        <Link href="/posts" prefetch>
-          <a >Posts</a>
-        </Link>
+        <ActiveLink href="/posts" prefetch activeClassName={styles.active}>
+          <a>Posts</a>
+        </ActiveLink>
         
         
       </nav>
