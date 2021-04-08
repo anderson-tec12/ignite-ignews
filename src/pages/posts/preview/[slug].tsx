@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next"
+import { GetStaticPaths, GetStaticProps } from "next"
 import { getSession, useSession } from "next-auth/client"
 import { redirect } from "next/dist/next-server/server/api-utils"
 import Head from "next/head"
@@ -57,10 +57,17 @@ export default function Post({post}:PostProps){
   )
 }
 
-export const getStaticPaths = () => {
+export const getStaticPaths:GetStaticPaths = async () => {
   return {
-    paths:[],
-    fallback: 'blocking'
+    paths:[
+      // {
+      //   params:
+      //     {
+      //       slug:'es10---novas-features-do-javascript'
+      //     }
+      // }
+    ],
+    fallback: 'blocking' // true | false | blocking
   }
 }
 
@@ -88,6 +95,7 @@ export const getStaticProps:GetStaticProps = async ({params}) => {
   return {
     props:{
       post
-    }
+    },
+    revalidate: 60 * 30, // 30 minutos
   }
 }
