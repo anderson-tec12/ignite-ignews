@@ -1,12 +1,12 @@
 import { GetServerSideProps } from "next"
 import { getSession } from "next-auth/client"
-import { redirect } from "next/dist/next-server/server/api-utils"
 import Head from "next/head"
 import { RichText } from "prismic-dom"
 import { getPrismicClient } from "../../services/prismic"
+
 import Styles from './post.module.scss'
 
-interface PostProps{
+interface PostPreviewProps{
   post:{
     slug: string,
     title: string,
@@ -15,7 +15,7 @@ interface PostProps{
   }
 }
 
-export default function Post({post}:PostProps){
+export default function PostPreview({post}:PostPreviewProps){
   return(
     <>
       <Head>
@@ -38,7 +38,8 @@ export default function Post({post}:PostProps){
   )
 }
 
-export const getServerSideProps:GetServerSideProps = async ({req, params}) => {
+export const getServerSideProps: GetServerSideProps = async ({req, params}) => {
+ 
   const session = await getSession({req})
   const {slug} = params
   
