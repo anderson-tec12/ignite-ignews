@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 module.export = {
   testPathIgnorePatterns: ["./node_modules", "/.next/"],
   setupFilesAfterEnv: ["<rootDir>/src/tests/setupTests.ts"],
@@ -5,4 +9,5 @@ module.export = {
     "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
   },
   testEnvironment: "jsdom",
+  // preset: "jest-playwright-jsdom",
 };
