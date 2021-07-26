@@ -10,6 +10,6 @@ module.export = {
   },
   testEnvironment: "jsdom",
   moduleNameMapper: {
-    "\\.(scss|css|sass)$": "identity-obj-proxy",
+    "^.+\\.(css|less|scss)$": "identity-obj-proxy",
   },
 };

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "teste": "jest --transformIgnorePatterns \"node_modules / (?!@toolz / allow) /\"  "
   },
   "dependencies": {
     "@prismicio/client": "^4.0.0",
