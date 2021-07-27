@@ -1,8 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-
-module.export = {
+module.exports = {
   testPathIgnorePatterns: ["./node_modules", "/.next/"],
   setupFilesAfterEnv: ["<rootDir>/src/tests/setupTests.ts"],
   transform: {

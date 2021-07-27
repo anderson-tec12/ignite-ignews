@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- * @moduleNameMapper {"^.+\\.(css|less|scss)$": "identity-obj-proxy"}
- */
 import "@testing-library/jest-dom/extend-expect";
 import "@testing-library/jest-dom";
 import "identity-obj-proxy";
