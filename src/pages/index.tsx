@@ -1,66 +1,63 @@
-import {GetServerSideProps, GetStaticProps} from 'next'
-import styles from './index.module.scss'
-import  Head from 'next/head'
-import { SubscribeButton } from '../components/SubscribeButton'
-import { stripe } from '../services/stripe'
-import { ChangeEvent } from 'react'
+import { GetServerSideProps, GetStaticProps } from "next";
+import styles from "./index.module.scss";
+import Head from "next/head";
+import { SubscribeButton } from "../components/SubscribeButton";
+import { stripe } from "../services/stripe";
+import { ChangeEvent } from "react";
 
-interface HomeProps{
-  product:{
-    priceId: string,
-    amount: Number  
-  }
+interface HomeProps {
+  product: {
+    priceId: string;
+    amount: string;
+  };
 }
 
-export default function Home(props:HomeProps) {
+export default function Home(props: HomeProps) {
   // console.log(props)
-  const {product} = props
-  return(
+  const { product } = props;
+  return (
     <>
       <Head>
         <title>Home | ig.news</title>
-      </Head> 
+      </Head>
       <main className={styles.contentContainer}>
         <section className={styles.hero}>
-          <span>
-          👏 Hey, Welcome
-          </span>
+          <span>👏 Hey, Welcome</span>
 
-          <h1>News abount the  <span>React</span> world.</h1>
+          <h1>
+            News abount the <span>React</span> world.
+          </h1>
 
           <p>
             Get access to all the publications <br />
             <span>for {product !== undefined && product.amount} month</span>
           </p>
-          <SubscribeButton priceId={product.priceId}/>
-          
+          <SubscribeButton priceId={product.priceId} />
         </section>
 
         <img src="/images/avatar.svg" alt="Girl coding" />
       </main>
     </>
-  ) 
-    
+  );
 }
 
-export const getStaticProps:GetStaticProps = async () => {  
-
-  const price  = await stripe.prices.retrieve('price_1IaLLyLnHhasAJPT3z5ZJ00B', {
-    expand: ['product']
-  })
+export const getStaticProps: GetStaticProps = async () => {
+  const price = await stripe.prices.retrieve("price_1IaLLyLnHhasAJPT3z5ZJ00B", {
+    expand: ["product"],
+  });
 
   const product = {
     priceId: price.id,
-    amount: new Intl.NumberFormat('en-US', {
-      style:'currency',
-      currency:'USD'
-    }).format(price.unit_amount / 100)
-  }
+    amount: new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(price.unit_amount / 100),
+  };
 
   return {
-    props:{
-      product
+    props: {
+      product,
     },
-    revalidate: 60 * 20 * 24 // 24 hours
-  }
-}
+    revalidate: 60 * 20 * 24, // 24 hours
+  };
+};
